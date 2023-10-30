@@ -1,0 +1,15 @@
+menu "M2M Configuration"
+
+    config M2M_HOST
+        string "IPV4 Address"
+        default "192.168.0.165"
+        help
+            IPV4 address to which the client example will send data.
+
+    config M2M_PORT 
+        int "Port"
+        range 0 65535
+        default 3333
+        help
+            The remote port to which the client example will send data.
+endmenu
