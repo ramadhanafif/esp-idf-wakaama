@@ -1,4 +1,9 @@
 menu "M2M Configuration"
+    config EP_NAME
+        string "Endpoint Name"
+        default "wakaama-esp"
+        help
+            The name of the endpoint to which the client will use.
 
     config M2M_HOST
         string "IPV4 Address"

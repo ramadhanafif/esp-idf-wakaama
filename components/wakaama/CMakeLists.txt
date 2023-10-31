@@ -18,6 +18,7 @@ target_compile_definitions(${COMPONENT_TARGET}
                     "LWM2M_CLIENT_MODE"
                     "LWM2M_COAP_DEFAULT_BLOCK_SIZE=256"
                     "LWM2M_SUPPORT_SENML_JSON"
+                    "LWM2M_WITH_LOGS"
                     )
 
 set(USES_TERMINAL_DOWNLOAD TRUE)

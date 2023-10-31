@@ -1,0 +1,713 @@
+Executing action: all (aliases: build)
+Running ninja in directory /home/wsl/esp/wkm/build
+Executing "ninja all"...
+[1/4] cd /home/wsl/esp/wkm/build/esp-idf/esptool_py && /home/wsl/.espressif/python_env/idf5.2_py3.11_env/bin/python /home/wsl/esp/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 partition --type app /home/wsl/esp/wkm/build/partition_table/partition-table.bin /home/wsl/esp/wkm/build/udp_client.bin
+udp_client.bin binary size 0xcb000 bytes. Smallest app partition is 0x100000 bytes. 0x35000 bytes (21%) free.
+[2/4] Performing build step for 'bootloader'
+[1/1] cd /home/wsl/esp/wkm/build/bootloader/esp-idf/esptool_py && /home/wsl/.espressif/python_env/idf5.2_py3.11_env/bin/python /home/wsl/esp/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x1000 /home/wsl/esp/wkm/build/bootloader/bootloader.bin
+Bootloader binary size 0x6910 bytes. 0x6f0 bytes (6%) free.
+[3/4] No install step for 'bootloader'
+[4/4] Completed 'bootloader'
+Executing action: flash
+Serial port /dev/ttyUSB0
+Connecting....
+Detecting chip type... Unsupported detection protocol, switching and trying again...
+Connecting....
+Detecting chip type... ESP32
+Running ninja in directory /home/wsl/esp/wkm/build
+Executing "ninja flash"...
+[1/5] cd /home/wsl/esp/wkm/build/esp-idf/esptool_py && /home/wsl/.espressif/python_env/idf5.2_py3.11_env/bin/python /home/wsl/esp/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 partition --type app /home/wsl/esp/wkm/build/partition_table/partition-table.bin /home/wsl/esp/wkm/build/udp_client.bin
+udp_client.bin binary size 0xcb000 bytes. Smallest app partition is 0x100000 bytes. 0x35000 bytes (21%) free.
+[2/5] Performing build step for 'bootloader'
+[1/1] cd /home/wsl/esp/wkm/build/bootloader/esp-idf/esptool_py && /home/wsl/.espressif/python_env/idf5.2_py3.11_env/bin/python /home/wsl/esp/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x1000 /home/wsl/esp/wkm/build/bootloader/bootloader.bin
+Bootloader binary size 0x6910 bytes. 0x6f0 bytes (6%) free.
+[3/5] No install step for 'bootloader'
+[4/5] Completed 'bootloader'
+[4/5] cd /home/wsl/esp/esp-idf/components/esptool_py && /usr/bin/cmake -D IDF_PATH=/home/wsl/esp/esp-idf -D "SERIAL_TOOL=/home/wsl/.espressif/python_env/idf5.2_py3.11_env/bin/python;;/home/wsl/esp/esp-idf/components/esptool_py/esptool/esptool.py;--chip;esp32" -D "SERIAL_TOOL_ARGS=--before=default_reset;--after=hard_reset;write_flash;@flash_args" -D WORKING_DIRECTORY=/home/wsl/esp/wkm/build -P /home/wsl/esp/esp-idf/components/esptool_py/run_serial_tool.cmake
+esptool.py --chip esp32 -p /dev/ttyUSB0 -b 460800 --before=default_reset --after=hard_reset write_flash --flash_mode dio --flash_freq 40m --flash_size 2MB 0x1000 bootloader/bootloader.bin 0x10000 udp_client.bin 0x8000 partition_table/partition-table.bin
+esptool.py v4.7.dev2
+Serial port /dev/ttyUSB0
+Connecting....
+Chip is ESP32-D0WDQ6 (revision v1.0)
+Features: WiFi, BT, Dual Core, 240MHz, VRef calibration in efuse, Coding Scheme None
+Crystal is 40MHz
+MAC: 3c:71:bf:58:fe:08
+Uploading stub...
+Running stub...
+Stub running...
+Changing baud rate to 460800
+Changed.
+Configuring flash size...
+Flash will be erased from 0x00001000 to 0x00007fff...
+Flash will be erased from 0x00010000 to 0x000dafff...
+Flash will be erased from 0x00008000 to 0x00008fff...
+Compressed 26896 bytes to 16884...
+Writing at 0x00001000... (50 %)
+Writing at 0x00007692... (100 %)
+Wrote 26896 bytes (16884 compressed) at 0x00001000 in 0.8 seconds (effective 279.7 kbit/s)...
+Hash of data verified.
+Compressed 831488 bytes to 539864...
+Writing at 0x00010000... (3 %)
+Writing at 0x0001bf6d... (6 %)
+Writing at 0x00025f6a... (9 %)
+Writing at 0x0002afd9... (12 %)
+Writing at 0x000347c5... (15 %)
+Writing at 0x0003ad0f... (18 %)
+Writing at 0x00040556... (21 %)
+Writing at 0x00046147... (24 %)
+Writing at 0x0004b80c... (27 %)
+Writing at 0x00050f68... (30 %)
+Writing at 0x00056a84... (33 %)
+Writing at 0x0005c035... (36 %)
+Writing at 0x000616af... (39 %)
+Writing at 0x00066e70... (42 %)
+Writing at 0x0006c864... (45 %)
+Writing at 0x000725ae... (48 %)
+Writing at 0x00077ffb... (51 %)
+Writing at 0x0007d205... (54 %)
+Writing at 0x000827e5... (57 %)
+Writing at 0x00087a2b... (60 %)
+Writing at 0x0008d0fe... (63 %)
+Writing at 0x000927b3... (66 %)
+Writing at 0x00098175... (69 %)
+Writing at 0x0009daa4... (72 %)
+Writing at 0x000a324c... (75 %)
+Writing at 0x000a8d20... (78 %)
+Writing at 0x000ae9b7... (81 %)
+Writing at 0x000b43e5... (84 %)
+Writing at 0x000b9945... (87 %)
+Writing at 0x000c2452... (90 %)
+Writing at 0x000ca6d8... (93 %)
+Writing at 0x000d059b... (96 %)
+Writing at 0x000d5cdc... (100 %)
+Wrote 831488 bytes (539864 compressed) at 0x00010000 in 12.2 seconds (effective 543.7 kbit/s)...
+Hash of data verified.
+Compressed 3072 bytes to 103...
+Writing at 0x00008000... (100 %)
+Wrote 3072 bytes (103 compressed) at 0x00008000 in 0.1 seconds (effective 427.8 kbit/s)...
+Hash of data verified.
+
+Leaving...
+Hard resetting via RTS pin...
+Executing action: monitor
+Running idf_monitor in directory /home/wsl/esp/wkm
+Executing "/home/wsl/.espressif/python_env/idf5.2_py3.11_env/bin/python /home/wsl/esp/esp-idf/tools/idf_monitor.py -p /dev/ttyUSB0 -b 115200 --toolchain-prefix xtensa-esp32-elf- --target esp32 --revision 0 /home/wsl/esp/wkm/build/udp_client.elf -m '/home/wsl/.espressif/python_env/idf5.2_py3.11_env/bin/python' '/home/wsl/esp/esp-idf/tools/idf.py'"...
+[0;32mI (180) esp_�ets Jun  8 2016 00:22:57
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7136
+load:0x40078000,len:15780
+ho 0 tail 12 room 4
+load:0x40080400,len:4
+load:0x40080404,len:3884
+entry 0x40080650
+[0;32mI (31) boot: ESP-IDF v5.2-dev-2708-g3640dc86bb 2nd stage bootloader[0m
+[0;32mI (31) boot: compile time Oct 31 2023 10:14:07[0m
+[0;32mI (32) boot: Multicore bootloader[0m
+[0;32mI (37) boot: chip revision: v1.0[0m
+[0;32mI (40) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (45) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (50) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (54) boot: Enabling RNG early entropy source...[0m
+[0;32mI (59) boot: Partition Table:[0m
+[0;32mI (63) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (70) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (78) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (85) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (93) boot: End of partition table[0m
+[0;32mI (97) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=22300h (140032) map[0m
+[0;32mI (156) esp_image: segment 1: paddr=00032328 vaddr=3ffb0000 size=03720h ( 14112) load[0m
+[0;32mI (162) esp_image: segment 2: paddr=00035a50 vaddr=40080000 size=0a5c8h ( 42440) load[0m
+[0;32mI (180) esp_image: segment 3: paddr=00040020 vaddr=400d0020 size=8f954h (588116) map[0m
+[0;32mI (392) esp_image: segment 4: paddr=000cf97c vaddr=4008a5c8 size=0b654h ( 46676) load[0m
+[0;32mI (423) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (423) boot: Disabling RNG early entropy source...[0m
+[0;32mI (434) cpu_start: Multicore app[0m
+[0;32mI (435) cpu_start: Pro cpu up.[0m
+[0;32mI (435) cpu_start: Starting app cpu, entry point is 0x400811e0[0m
+[0;32mI (0) cpu_start: App cpu up.[0m
+[0;32mI (453) cpu_start: Pro cpu start user code[0m
+[0;32mI (453) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (453) cpu_start: Application information:[0m
+[0;32mI (457) cpu_start: Project name:     udp_client[0m
+[0;32mI (463) cpu_start: App version:      4eae243-dirty[0m
+[0;32mI (468) cpu_start: Compile time:     Oct 31 2023 10:28:08[0m
+[0;32mI (474) cpu_start: ELF file SHA256:  8b04ca35f...[0m
+[0;32mI (480) cpu_start: ESP-IDF:          v5.2-dev-2708-g3640dc86bb[0m
+[0;32mI (486) cpu_start: Min chip rev:     v0.0[0m
+[0;32mI (491) cpu_start: Max chip rev:     v3.99 [0m
+[0;32mI (496) cpu_start: Chip rev:         v1.0[0m
+[0;32mI (501) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (508) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (514) heap_init: At 3FFB79A8 len 00028658 (161 KiB): DRAM[0m
+[0;32mI (520) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (526) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (533) heap_init: At 40095C1C len 0000A3E4 (40 KiB): IRAM[0m
+[0;32mI (540) spi_flash: detected chip: generic[0m
+[0;32mI (544) spi_flash: flash io: dio[0m
+[0;33mW (547) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (562) app_start: Starting scheduler on CPU0[0m
+[0;32mI (566) app_start: Starting scheduler on CPU1[0m
+[0;32mI (566) main_task: Started on CPU0[0m
+[0;32mI (576) main_task: Calling app_main()[0m
+[0;32mI (596) example_connect: Start example_connect.[0m
+I (606) wifi:wifi driver task: 3ffbf54c, prio:23, stack:6656, core=0
+I (606) wifi:wifi firmware version: e03c1ca
+I (606) wifi:wifi certification version: v7.0
+I (606) wifi:config NVS flash: enabled
+I (606) wifi:config nano formating: disabled
+I (616) wifi:Init data frame dynamic rx buffer num: 32
+I (616) wifi:Init management frame dynamic rx buffer num: 32
+I (626) wifi:Init management short buffer num: 32
+I (626) wifi:Init dynamic tx buffer num: 32
+I (626) wifi:Init static rx buffer size: 1600
+I (636) wifi:Init static rx buffer num: 10
+I (636) wifi:Init dynamic rx buffer num: 32
+[0;32mI (646) wifi_init: rx ba win: 6[0m
+[0;32mI (646) wifi_init: tcpip mbox: 32[0m
+[0;32mI (646) wifi_init: udp mbox: 6[0m
+[0;32mI (656) wifi_init: tcp mbox: 6[0m
+[0;32mI (656) wifi_init: tcp tx win: 5744[0m
+[0;32mI (666) wifi_init: tcp rx win: 5744[0m
+[0;32mI (666) wifi_init: tcp mss: 1440[0m
+[0;32mI (666) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (676) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;32mI (676) phy_init: phy_version 4771,450c73b,Aug 16 2023,11:03:10[0m
+I (766) wifi:mode : sta (3c:71:bf:58:fe:08)
+I (766) wifi:enable tsf
+[0;32mI (766) example_connect: Connecting to CADIT-VPN-27...[0m
+[0;32mI (776) example_connect: Waiting for IP(s)[0m
+I (3186) wifi:new:<6,0>, old:<1,0>, ap:<255,255>, sta:<6,0>, prof:1
+I (4346) wifi:state: init -> auth (b0)
+I (4346) wifi:state: auth -> assoc (0)
+I (4356) wifi:state: assoc -> run (10)
+I (4376) wifi:connected with CADIT-VPN-27, aid = 4, channel 6, BW20, bssid = 48:2f:6b:62:6f:21
+I (4376) wifi:security: WPA2-PSK, phy: bgn, rssi: -62
+I (4376) wifi:pm start, type: 1
+
+I (4396) wifi:<ba-add>idx:0 (ifx:0, 48:2f:6b:62:6f:21), tid:0, ssn:0, winSize:64
+I (4466) wifi:AP's beacon interval = 102400 us, DTIM period = 1
+[0;32mI (5386) esp_netif_handlers: example_netif_sta ip: 10.1.20.253, mask: 255.255.255.0, gw: 10.1.20.1[0m
+[0;32mI (5386) example_connect: Got IPv4 event: Interface "example_netif_sta" address: 10.1.20.253[0m
+[0;32mI (5396) example_common: Connected to example_netif_sta[0m
+[0;32mI (5396) example_common: - IPv4 address: 10.1.20.253,[0m
+[0;32mI (5406) client: Socket created[0m
+[lwm2m_init:65] Entering
+[lwm2m_configure:275] endpointName: "wakaama-esp", msisdn: "", altPath: "", numObject: 3
+[lwm2m_step:384] timeoutP: 4
+[lwm2m_step:389] State: STATE_INITIAL
+[object_getServers:1040] Entering
+[lwm2m_data_new:160] size: 1
+[lwm2m_data_encode_bool:519] value: false
+[lwm2m_data_decode_bool:529] Entering
+[lwm2m_data_decode_bool:580] result: 1, value: false
+[lwm2m_data_free:178] size: 1
+[lwm2m_data_new:160] size: 1
+[lwm2m_data_encode_int:289] value: 123
+[lwm2m_data_decode_int:299] Entering
+[lwm2m_data_decode_int:362] result: 1, value: 123
+[lwm2m_data_new:160] size: 1
+[lwm2m_data_encode_int:289] value: 123
+[lwm2m_data_decode_int:299] Entering
+[lwm2m_data_decode_int:362] result: 1, value: 123
+[lwm2m_data_free:178] size: 1
+[lwm2m_data_new:160] size: 2
+[lwm2m_data_encode_int:289] value: 300
+[lwm2m_data_encode_string:214] "U"
+[lwm2m_data_decode_int:299] Entering
+[lwm2m_data_decode_int:362] result: 1, value: 300
+[lwm2m_data_free:178] size: 2
+[lwm2m_data_free:178] size: 1
+[registration_start:1028] State: STATE_REGISTER_REQUIRED
+[lwm2m_data_new:160] size: 1
+[lwm2m_data_free:178] size: 1
+[lwm2m_data_new:160] size: 1
+[lwm2m_data_free:178] size: 1
+[observe_step:521] Entering
+[registration_step:2054] State: STATE_REGISTERING
+[object_getRegisterPayloadBufferLength:788] Entering
+[object_getRegisterPayload:886] Entering
+[transaction_new:160] method: 2, altPath: "", mID: 45862, token_len: 4
+[transaction_new:162] NULL
+[transaction_new:242] Exiting on success. new transac=0x3ffc6dc4
+[transaction_send:373] Entering: transaction=0x3ffc6dc4
+    44 02 B3 26  26 B3 05 00  B2 72 64 11  28 39 6C 77   D..&&....rd.(9lw
+    [0;32mI (5556) main_task: Returned from app_main()[0m
+6D 32 6D 3D  31 2E 31 0D  01 65 70 3D  77 61 6B 61   m2m=1.1..ep=waka
+    61 6D 61 2D  65 73 70 03  62 3D 55 06  6C 74 3D 33   ama-esp.b=U.lt=3
+    30 30 FF 3C  2F 3E 3B 72  74 3D 22 6F  6D 61 2E 6C   00.</>;rt="oma.l
+    77 6D 32 6D  22 3B 63 74  3D 31 31 30  2C 3C 2F 31   wm2m";ct=110,</1
+    2F 30 3E 2C  3C 2F 33 2F  30 3E                      /0>,</3/0>
+[transaction_step:460] Entering
+[lwm2m_step:491] Final timeoutP: 3
+[lwm2m_step:493] Final state: STATE_REGISTERING
+[0;32mI (5806) client: Received 22 bytes[0m
+[lwm2m_handle_packet:485] Entering
+[lwm2m_handle_packet:492] Parsed: ver 1, type 2, tkl 4, code 2.01, mid 45862, Content type: 0
+[lwm2m_handle_packet:494] Payload: 
+[transaction_handleResponse:296] Entering
+[prv_handleRegistrationReply:670] 123 Registration successful
+[lwm2m_data_new:160] size: 1
+[lwm2m_data_free:178] size: 1
+[transaction_remove:282] Entering. transaction=0x3ffc6dc4
+[transaction_free:258] Entering. transaction=0x3ffc6dc4
+64 41 B3 26  26 B3 05 00  82 72 64 0A  72 76 37 50   dA.&&....rd.rv7P
+47 5A 74 78  45 67                                   GZtxEg
+[lwm2m_step:384] timeoutP: 7
+[lwm2m_step:389] State: STATE_REGISTERING
+[registration_getStatus:1094] State: STATE_REGISTERING
+[registration_getStatus:1101] 123 status: STATE_REGISTERED
+[registration_getStatus:1125] reg_status: STATE_REGISTERED
+[observe_step:521] Entering
+[registration_step:2054] State: STATE_READY
+[transaction_step:460] Entering
+[lwm2m_step:491] Final timeoutP: 7
+[lwm2m_step:493] Final state: STATE_READY
+[lwm2m_step:384] timeoutP: 19
+[lwm2m_step:389] State: STATE_READY
+[registration_getStatus:1094] State: STATE_READY
+[registration_getStatus:1101] 123 status: STATE_REGISTERED
+[registration_getStatus:1125] reg_status: STATE_REGISTERED
+[observe_step:521] Entering
+[registration_step:2054] State: STATE_READY
+[transaction_step:460] Entering
+[lwm2m_step:491] Final timeoutP: 19
+[lwm2m_step:493] Final state: STATE_READY
+[0;32mI (25166) client: Received 20 bytes[0m
+[lwm2m_handle_packet:485] Entering
+[lwm2m_handle_packet:492] Parsed: ver 1, type 0, tkl 8, code 0.01, mid 52165, Content type: 0
+[lwm2m_handle_packet:494] Payload: 
+[handle_request:147] Entering
+[uri_decode:103] altPath: ""
+[dm_handleRequest:172] Code: 01, server status: STATE_REGISTERED
+[dm_handleRequest:173] /3/0/0
+[object_read:278] /3/0/0
+[object_readData:181] /3/0/0
+[lwm2m_data_new:160] size: 1
+[lwm2m_data_encode_string:214] "Open Mobile Alliance"
+[object_readData:261] result: 2.05, size: 1
+[lwm2m_data_serialize:725] /3/0/0
+[lwm2m_data_serialize:726] size: 1, formatP: LWM2M_CONTENT_SENML_JSON
+[lwm2m_data_serialize:757] Final format: LWM2M_CONTENT_SENML_JSON
+[senml_json_
+***ERROR*** A stack overflow in task client_lwm2m has been detected.
+
+
+Backtrace: 0x400817e6:0x3ffc5c20 0x40089001:0x3ffc5c40 0x4008be52:0x3ffc5c60 0x4008a47b:0x3ffc5ce0 0x4008bf5c:0x3ffc5d00 0x4008bf0e:0x010102f2 |<-CORRUPTED
+
+
+
+
+ELF file SHA256: 8b04ca35f
+
+Rebooting...
+ets Jun  8 2016 00:22:57
+
+rst:0xc (SW_CPU_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7136
+load:0x40078000,len:15780
+ho 0 tail 12 room 4
+load:0x40080400,len:4
+load:0x40080404,len:3884
+entry 0x40080650
+[0;32mI (31) boot: ESP-IDF v5.2-dev-2708-g3640dc86bb 2nd stage bootloader[0m
+[0;32mI (31) boot: compile time Oct 31 2023 10:14:07[0m
+[0;32mI (33) boot: Multicore bootloader[0m
+[0;32mI (37) boot: chip revision: v1.0[0m
+[0;32mI (41) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (45) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (50) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (54) boot: Enabling RNG early entropy source...[0m
+[0;32mI (60) boot: Partition Table:[0m
+[0;32mI (63) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (71) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (78) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (86) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (93) boot: End of partition table[0m
+[0;32mI (97) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=22300h (140032) map[0m
+[0;32mI (156) esp_image: segment 1: paddr=00032328 vaddr=3ffb0000 size=03720h ( 14112) load[0m
+[0;32mI (162) esp_image: segment 2: paddr=00035a50 vaddr=40080000 size=0a5c8h ( 42440) load[0m
+[0;32mI (180) esp_image: segment 3: paddr=00040020 vaddr=400d0020 size=8f954h (588116) map[0m
+[0;32mI (393) esp_image: segment 4: paddr=000cf97c vaddr=4008a5c8 size=0b654h ( 46676) load[0m
+[0;32mI (423) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (423) boot: Disabling RNG early entropy source...[0m
+[0;32mI (435) cpu_start: Multicore app[0m
+[0;32mI (435) cpu_start: Pro cpu up.[0m
+[0;32mI (435) cpu_start: Starting app cpu, entry point is 0x400811e0[0m
+[0;32mI (423) cpu_start: App cpu up.[0m
+[0;32mI (453) cpu_start: Pro cpu start user code[0m
+[0;32mI (453) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (453) cpu_start: Application information:[0m
+[0;32mI (458) cpu_start: Project name:     udp_client[0m
+[0;32mI (463) cpu_start: App version:      4eae243-dirty[0m
+[0;32mI (469) cpu_start: Compile time:     Oct 31 2023 10:28:08[0m
+[0;32mI (475) cpu_start: ELF file SHA256:  8b04ca35f...[0m
+[0;32mI (480) cpu_start: ESP-IDF:          v5.2-dev-2708-g3640dc86bb[0m
+[0;32mI (487) cpu_start: Min chip rev:     v0.0[0m
+[0;32mI (491) cpu_start: Max chip rev:     v3.99 [0m
+[0;32mI (496) cpu_start: Chip rev:         v1.0[0m
+[0;32mI (501) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (508) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (514) heap_init: At 3FFB79A8 len 00028658 (161 KiB): DRAM[0m
+[0;32mI (520) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (527) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (533) heap_init: At 40095C1C len 0000A3E4 (40 KiB): IRAM[0m
+[0;32mI (541) spi_flash: detected chip: generic[0m
+[0;32mI (544) spi_flash: flash io: dio[0m
+[0;33mW (548) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (562) app_start: Starting scheduler on CPU0[0m
+[0;32mI (566) app_start: Starting scheduler on CPU1[0m
+[0;32mI (566) main_task: Started on CPU0[0m
+[0;32mI (576) main_task: Calling app_main()[0m
+[0;32mI (596) example_connect: Start example_connect.[0m
+I (606) wifi:wifi driver task: 3ffbf54c, prio:23, stack:6656, core=0
+I (606) wifi:wifi firmware version: e03c1ca
+I (606) wifi:wifi certification version: v7.0
+I (606) wifi:config NVS flash: enabled
+I (606) wifi:config nano formating: disabled
+I (616) wifi:Init data frame dynamic rx buffer num: 32
+I (616) wifi:Init management frame dynamic rx buffer num: 32
+I (626) wifi:Init management short buffer num: 32
+I (626) wifi:Init dynamic tx buffer num: 32
+I (626) wifi:Init static rx buffer size: 1600
+I (636) wifi:Init static rx buffer num: 10
+I (636) wifi:Init dynamic rx buffer num: 32
+[0;32mI (646) wifi_init: rx ba win: 6[0m
+[0;32mI (646) wifi_init: tcpip mbox: 32[0m
+[0;32mI (646) wifi_init: udp mbox: 6[0m
+[0;32mI (656) wifi_init: tcp mbox: 6[0m
+[0;32mI (656) wifi_init: tcp tx win: 5744[0m
+[0;32mI (666) wifi_init: tcp rx win: 5744[0m
+[0;32mI (666) wifi_init: tcp mss: 1440[0m
+[0;32mI (666) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (676) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;32mI (676) phy_init: phy_version 4771,450c73b,Aug 16 2023,11:03:10[0m
+I (766) wifi:mode : sta (3c:71:bf:58:fe:08)
+I (766) wifi:enable tsf
+[0;32mI (776) example_connect: Connecting to CADIT-VPN-27...[0m
+[0;32mI (776) example_connect: Waiting for IP(s)[0m
+I (3186) wifi:new:<6,0>, old:<1,0>, ap:<255,255>, sta:<6,0>, prof:1
+I (4346) wifi:state: init -> auth (b0)
+I (4356) wifi:state: auth -> assoc (0)
+I (4356) wifi:state: assoc -> run (10)
+I (4376) wifi:connected with CADIT-VPN-27, aid = 4, channel 6, BW20, bssid = 48:2f:6b:62:6f:21
+I (4376) wifi:security: WPA2-PSK, phy: bgn, rssi: -63
+I (4376) wifi:pm start, type: 1
+
+I (4396) wifi:<ba-add>idx:0 (ifx:0, 48:2f:6b:62:6f:21), tid:0, ssn:0, winSize:64
+I (4406) wifi:AP's beacon interval = 102400 us, DTIM period = 1
+[0;32mI (5386) esp_netif_handlers: example_netif_sta ip: 10.1.20.253, mask: 255.255.255.0, gw: 10.1.20.1[0m
+[0;32mI (5386) example_connect: Got IPv4 event: Interface "example_netif_sta" address: 10.1.20.253[0m
+[0;32mI (5396) example_common: Connected to example_netif_sta[0m
+[0;32mI (5396) example_common: - IPv4 address: 10.1.20.253,[0m
+[0;32mI (5406) client: Socket created[0m
+[lwm2m_init:65] Entering
+[lwm2m_configure:275] endpointName: "wakaama-esp", msisdn: "", altPath: "", numObject: 3
+[lwm2m_step:384] timeoutP: 4
+[lwm2m_step:389] State: STATE_INITIAL
+[object_getServers:1040] Entering
+[lwm2m_data_new:160] size: 1
+[lwm2m_data_encode_bool:519] value: false
+[lwm2m_data_decode_bool:529] Entering
+[lwm2m_data_decode_bool:580] result: 1, value: false
+[lwm2m_data_free:178] size: 1
+[lwm2m_data_new:160] size: 1
+[lwm2m_data_encode_int:289] value: 123
+[lwm2m_data_decode_int:299] Entering
+[lwm2m_data_decode_int:362] result: 1, value: 123
+[lwm2m_data_new:160] size: 1
+[lwm2m_data_encode_int:289] value: 123
+[lwm2m_data_decode_int:299] Entering
+[lwm2m_data_decode_int:362] result: 1, value: 123
+[lwm2m_data_free:178] size: 1
+[lwm2m_data_new:160] size: 2
+[lwm2m_data_encode_int:289] value: 300
+[lwm2m_data_encode_string:214] "U"
+[lwm2m_data_decode_int:299] Entering
+[lwm2m_data_decode_int:362] result: 1, value: 300
+[lwm2m_data_free:178] size: 2
+[lwm2m_data_free:178] size: 1
+[registration_start:1028] State: STATE_REGISTER_REQUIRED
+[lwm2m_data_new:160] size: 1
+[lwm2m_data_free:178] size: 1
+[lwm2m_data_new:160] size: 1
+[lwm2m_data_free:178] size: 1
+[observe_step:521] Entering
+[registration_step:2054] State: STATE_REGISTERING
+[object_getRegisterPayloadBufferLength:788] Entering
+[object_getRegisterPayload:886] Entering
+[transaction_new:160] method: 2, altPath: "", mID: 18897, token_len: 4
+[transaction_new:162] NULL
+[transaction_new:242] Exiting on success. new transac=0x3ffc6dc4
+[transaction_send:373] Entering: transaction=0x3ffc6dc4
+    44 02 49 D1  D1 49 05 00  B2 72 64 11  28 39 6C 77   D.I..I...rd.(9lw
+[0;32mI (5556) main_task: Returned from app_main()[0m
+    6D 32 6D 3D  31 2E 31 0D  01 65 70 3D  77 61 6B 61   m2m=1.1..ep=waka
+    61 6D 61 2D  65 73 70 03  62 3D 55 06  6C 74 3D 33   ama-esp.b=U.lt=3
+    30 30 FF 3C  2F 3E 3B 72  74 3D 22 6F  6D 61 2E 6C   00.</>;rt="oma.l
+    77 6D 32 6D  22 3B 63 74  3D 31 31 30  2C 3C 2F 31   wm2m";ct=110,</1
+    2F 30 3E 2C  3C 2F 33 2F  30 3E                      /0>,</3/0>
+[transaction_step:460] Entering
+[lwm2m_step:491] Final timeoutP: 3
+[lwm2m_step:493] Final state: STATE_REGISTERING
+[0;32mI (5946) client: Received 22 bytes[0m
+[lwm2m_handle_packet:485] Entering
+[lwm2m_handle_packet:492] Parsed: ver 1, type 2, tkl 4, code 2.01, mid 18897, Content type: 0
+[lwm2m_handle_packet:494] Payload: 
+[transaction_handleResponse:296] Entering
+[prv_handleRegistrationReply:670] 123 Registration successful
+[lwm2m_data_new:160] size: 1
+[lwm2m_data_free:178] size: 1
+[transaction_remove:282] Entering. transaction=0x3ffc6dc4
+[transaction_free:258] Entering. transaction=0x3ffc6dc4
+64 41 49 D1  D1 49 05 00  82 72 64 0A  38 49 65 67   dAI..I...rd.8Ieg
+46 38 48 59  73 70                                   F8HYsp
+[lwm2m_step:384] timeoutP: 7
+[lwm2m_step:389] State: STATE_REGISTERING
+[registration_getStatus:1094] State: STATE_REGISTERING
+[registration_getStatus:1101] 123 status: STATE_REGISTERED
+[registration_getStatus:1125] reg_status: STATE_REGISTERED
+[observe_step:521] Entering
+[registration_step:2054] State: STATE_READY
+[transaction_step:460] Entering
+[lwm2m_step:491] Final timeoutP: 7
+[lwm2m_step:493] Final state: STATE_READY
+[lwm2m_step:384] timeoutP: 19
+[lwm2m_step:389] State: STATE_READY
+[registration_getStatus:1094] State: STATE_READY
+[registration_getStatus:1101] 123 status: STATE_REGISTERED
+[registration_getStatus:1125] reg_status: STATE_REGISTERED
+[observe_step:521] Entering
+[registration_step:2054] State: STATE_READY
+[transaction_step:460] Entering
+[lwm2m_step:491] Final timeoutP: 19
+[lwm2m_step:493] Final state: STATE_READY
+[lwm2m_step:384] timeoutP: 31
+[lwm2m_step:389] State: STATE_READY
+[registration_getStatus:1094] State: STATE_READY
+[registration_getStatus:1101] 123 status: STATE_REGISTERED
+[registration_getStatus:1125] reg_status: STATE_REGISTERED
+[observe_step:521] Entering
+[registration_step:2054] State: STATE_READY
+[transaction_step:460] Entering
+[lwm2m_step:491] Final timeoutP: 31
+[lwm2m_step:493] Final state: STATE_READY
+[0;32mI (32876) client: Received 20 bytes[0m
+[lwm2m_handle_packet:485] Entering
+[lwm2m_handle_packet:492] Parsed: ver 1, type 0, tkl 8, code 0.01, mid 62644, Content type: 0
+[lwm2m_handle_packet:494] Payload: 
+[handle_request:147] Entering
+[uri_decode:103] altPath: ""
+[dm_handleRequest:172] Code: 01, server status: STATE_REGISTERED
+[dm_handleRequest:173] /3/0/1
+[object_read:278] /3/0/1
+[object_readData:181] /3/0/1
+[lwm2m_data_new:160] size: 1
+[lwm2m_data_encode_string:214] "Lightweight M2M Client"
+[object_readData:261] result: 2.05, size: 1
+[lwm2m_data_serialize:725] /3/0/1
+[lwm2m_data_serialize:726] size: 1, formatP: LWM2M_CONTENT_SENML_JSON
+[lwm2m_data_serialize:757] Final format: LWM2M_CONTENT_SENML_JSON
+[senml_json_serialize:1087] size: 1
+[senml_json_serialize:1088] /3/0/1
+[lwm2m_uriToString:297] bufferLen: 24
+[lwm2m_uriToString:298] /3/0/1
+[lwm2m_uriToString:354] length: 6, buffer: "/3/0/1"
+[lwm2m_data_free:178] size: 1
+[object_read:307] result: 2.05, length: 47
+[message_send:870] Entering
+[message_send:872] Size to allocate: 65
+[message_send:879] coap_serialize_message() returned 62
+
+***ERROR*** A stack overflow in task client_lwm2m has been detected.
+
+
+Backtrace: 0x400817e6:0x3ffc64c0 0x40089001:0x3ffc64e0 0x4008be52:0x3ffc6500 0x4008a4c3:0x3ffc6580 0x4008bf5c:0x3ffc65a0 0x4008bf0e:0x3f405ed0 |<-CORRUPTED
+
+
+
+
+ELF file SHA256: 8b04ca35f
+
+Rebooting...
+ets Jun  8 2016 00:22:57
+
+rst:0xc (SW_CPU_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7136
+load:0x40078000,len:15780
+ho 0 tail 12 room 4
+load:0x40080400,len:4
+load:0x40080404,len:3884
+entry 0x40080650
+[0;32mI (31) boot: ESP-IDF v5.2-dev-2708-g3640dc86bb 2nd stage bootloader[0m
+[0;32mI (31) boot: compile time Oct 31 2023 10:14:07[0m
+[0;32mI (33) boot: Multicore bootloader[0m
+[0;32mI (37) boot: chip revision: v1.0[0m
+[0;32mI (41) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (45) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (50) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (54) boot: Enabling RNG early entropy source...[0m
+[0;32mI (60) boot: Partition Table:[0m
+[0;32mI (63) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (71) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (78) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (86) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (93) boot: End of partition table[0m
+[0;32mI (97) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=22300h (140032) map[0m
+[0;32mI (156) esp_image: segment 1: paddr=00032328 vaddr=3ffb0000 size=03720h ( 14112) load[0m
+[0;32mI (162) esp_image: segment 2: paddr=00035a50 vaddr=40080000 size=0a5c8h ( 42440) load[0m
+[0;32mI (180) esp_image: segment 3: paddr=00040020 vaddr=400d0020 size=8f954h (588116) map[0m
+[0;32mI (393) esp_image: segment 4: paddr=000cf97c vaddr=4008a5c8 size=0b654h ( 46676) load[0m
+[0;32mI (423) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (423) boot: Disabling RNG early entropy source...[0m
+[0;32mI (435) cpu_start: Multicore app[0m
+[0;32mI (435) cpu_start: Pro cpu up.[0m
+[0;32mI (435) cpu_start: Starting app cpu, entry point is 0x400811e0[0m
+[0;32mI (422) cpu_start: App cpu up.[0m
+[0;32mI (453) cpu_start: Pro cpu start user code[0m
+[0;32mI (453) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (453) cpu_start: Application information:[0m
+[0;32mI (458) cpu_start: Project name:     udp_client[0m
+[0;32mI (463) cpu_start: App version:      4eae243-dirty[0m
+[0;32mI (469) cpu_start: Compile time:     Oct 31 2023 10:28:08[0m
+[0;32mI (475) cpu_start: ELF file SHA256:  8b04ca35f...[0m
+[0;32mI (480) cpu_start: ESP-IDF:          v5.2-dev-2708-g3640dc86bb[0m
+[0;32mI (487) cpu_start: Min chip rev:     v0.0[0m
+[0;32mI (491) cpu_start: Max chip rev:     v3.99 [0m
+[0;32mI (496) cpu_start: Chip rev:         v1.0[0m
+[0;32mI (501) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (508) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (514) heap_init: At 3FFB79A8 len 00028658 (161 KiB): DRAM[0m
+[0;32mI (520) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (527) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (533) heap_init: At 40095C1C len 0000A3E4 (40 KiB): IRAM[0m
+[0;32mI (541) spi_flash: detected chip: generic[0m
+[0;32mI (544) spi_flash: flash io: dio[0m
+[0;33mW (548) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (562) app_start: Starting scheduler on CPU0[0m
+[0;32mI (566) app_start: Starting scheduler on CPU1[0m
+[0;32mI (566) main_task: Started on CPU0[0m
+[0;32mI (576) main_task: Calling app_main()[0m
+[0;32mI (596) example_connect: Start example_connect.[0m
+I (606) wifi:wifi driver task: 3ffbf54c, prio:23, stack:6656, core=0
+I (606) wifi:wifi firmware version: e03c1ca
+I (606) wifi:wifi certification version: v7.0
+I (606) wifi:config NVS flash: enabled
+I (606) wifi:config nano formating: disabled
+I (616) wifi:Init data frame dynamic rx buffer num: 32
+I (616) wifi:Init management frame dynamic rx buffer num: 32
+I (626) wifi:Init management short buffer num: 32
+I (626) wifi:Init dynamic tx buffer num: 32
+I (626) wifi:Init static rx buffer size: 1600
+I (636) wifi:Init static rx buffer num: 10
+I (636) wifi:Init dynamic rx buffer num: 32
+[0;32mI (646) wifi_init: rx ba win: 6[0m
+[0;32mI (646) wifi_init: tcpip mbox: 32[0m
+[0;32mI (646) wifi_init: udp mbox: 6[0m
+[0;32mI (656) wifi_init: tcp mbox: 6[0m
+[0;32mI (656) wifi_init: tcp tx win: 5744[0m
+[0;32mI (666) wifi_init: tcp rx win: 5744[0m
+[0;32mI (666) wifi_init: tcp mss: 1440[0m
+[0;32mI (666) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (676) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;32mI (676) phy_init: phy_version 4771,450c73b,Aug 16 2023,11:03:10[0m
+I (766) wifi:mode : sta (3c:71:bf:58:fe:08)
+I (766) wifi:enable tsf
+[0;32mI (766) example_connect: Connecting to CADIT-VPN-27...[0m
+[0;32mI (776) example_connect: Waiting for IP(s)[0m
+I (3186) wifi:new:<6,0>, old:<1,0>, ap:<255,255>, sta:<6,0>, prof:1
+I (4346) wifi:state: init -> auth (b0)
+I (4346) wifi:state: auth -> assoc (0)
+I (4356) wifi:state: assoc -> run (10)
+I (4386) wifi:connected with CADIT-VPN-27, aid = 4, channel 6, BW20, bssid = 48:2f:6b:62:6f:21
+I (4386) wifi:security: WPA2-PSK, phy: bgn, rssi: -60
+I (4396) wifi:pm start, type: 1
+
+I (4406) wifi:<ba-add>idx:0 (ifx:0, 48:2f:6b:62:6f:21), tid:0, ssn:0, winSize:64
+I (4466) wifi:AP's beacon interval = 102400 us, DTIM period = 1
+[0;32mI (5396) esp_netif_handlers: example_netif_sta ip: 10.1.20.253, mask: 255.255.255.0, gw: 10.1.20.1[0m
+[0;32mI (5396) example_connect: Got IPv4 event: Interface "example_netif_sta" address: 10.1.20.253[0m
+[0;32mI (5406) example_common: Connected to example_netif_sta[0m
+[0;32mI (5406) example_common: - IPv4 address: 10.1.20.253,[0m
+[0;32mI (5416) client: Socket created[0m
+[lwm2m_init:65] Entering
+[lwm2m_configure:275] endpointName: "wakaama-esp", msisdn: "", altPath: "", numObject: 3
+[lwm2m_step:384] timeoutP: 4
+[lwm2m_step:389] State: STATE_INITIAL
+[object_getServers:1040] Entering
+[lwm2m_data_new:160] size: 1
+[lwm2m_data_encode_bool:519] value: false
+[lwm2m_data_decode_bool:529] Entering
+[lwm2m_data_decode_bool:580] result: 1, value: false
+[lwm2m_data_free:178] size: 1
+[lwm2m_data_new:160] size: 1
+[lwm2m_data_encode_int:289] value: 123
+[lwm2m_data_decode_int:299] Entering
+[lwm2m_data_decode_int:362] result: 1, value: 123
+[lwm2m_data_new:160] size: 1
+[lwm2m_data_encode_int:289] value: 123
+[lwm2m_data_decode_int:299] Entering
+[lwm2m_data_decode_int:362] result: 1, value: 123
+[lwm2m_data_free:178] size: 1
+[lwm2m_data_new:160] size: 2
+[lwm2m_data_encode_int:289] value: 300
+[lwm2m_data_encode_string:214] "U"
+[lwm2m_data_decode_int:299] Entering
+[lwm2m_data_decode_int:362] result: 1, value: 300
+[lwm2m_data_free:178] size: 2
+[lwm2m_data_free:178] size: 1
+[registration_start:1028] State: STATE_REGISTER_REQUIRED
+[lwm2m_data_new:160] size: 1
+[lwm2m_data_free:178] size: 1
+[lwm2m_data_new:160] size: 1
+[lwm2m_data_free:178] size: 1
+[observe_step:521] Entering
+[registration_step:2054] State: STATE_REGISTERING
+[object_getRegisterPayloadBufferLength:788] Entering
+[object_getRegisterPayload:886] Entering
+[transaction_new:160] method: 2, altPath: "", mID: 4014, token_len: 4
+[transaction_new:162] NULL
+[transaction_new:242] Exiting on success. new transac=0x3ffc59e4
+[transaction_send:373] Entering: transaction=0x3ffc59e4
+    44 02 0F AE  AE 0F 05 00  B2 72 64 11  28 39 6C 77  [0;32mI (5566) main_task: Returned from app_main()[0m
+ D........rd.(9lw
+    6D 32 6D 3D  31 2E 31 0D  01 65 70 3D  77 61 6B 61   m2m=1.1..ep=waka
+    61 6D 61 2D  65 73 70 03  62 3D 55 06  6C 74 3D 33   ama-esp.b=U.lt=3
+    30 30 FF 3C  2F 3E 3B 72  74 3D 22 6F  6D 61 2E 6C   00.</>;rt="oma.l
+    77 6D 32 6D  22 3B 63 74  3D 31 31 30  2C 3C 2F 31   wm2m";ct=110,</1
+    2F 30 3E 2C  3C 2F 33 2F  30 3E                      /0>,</3/0>
+[transaction_step:460] Entering
+[lwm2m_step:491] Final timeoutP: 3
+[lwm2m_step:493] Final state: STATE_REGISTERING
+[0;32mI (5916) client: Received 22 bytes[0m
+[lwm2m_handle_packet:485] Entering
+[lwm2m_handle_packet:492] Parsed: ver 1, type 2, tkl 4, code 2.01, mid 4014, Content type: 0
+[lwm2m_handle_packet:494] Payload: 
+[transaction_handleResponse:296] Entering
+[prv_handleRegistrationReply:670] 123 Registration successful
+[lwm2m_data_new:160] size: 1
+[lwm2m_data_free:178] size: 1
+[transaction_remove:282] Entering. transaction=0x3ffc59e4
+[transaction_free:258] Entering. transaction=0x3ffc59e4
+64 41 0F AE  AE 0F 05 00  82 72 64 0A  61 65 6F 77   dA.......rd.aeow
+34 75 46 36  63 46                                   4uF6cF
+[lwm2m_step:384] timeoutP: 7
+[lwm2m_step:389] State: STATE_REGISTERING
+[registration_getStatus:1094] State: STATE_REGISTERING
+[registration_getStatus:1101] 123 status: STATE_REGISTERED
+[registration_getStatus:1125] reg_status: STATE_REGISTERED
+[observe_step:521] Entering
+[registration_step:2054] State: STATE_READY
+[transaction_step:460] Entering
+[lwm2m_step:491] Final timeoutP: 7
+[lwm2m_step:493] Final state: STATE_READY
+Done
